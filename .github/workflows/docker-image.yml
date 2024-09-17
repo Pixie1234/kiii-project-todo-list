@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build:
+  build-and-push-dockerhub:
 
     runs-on: ubuntu-latest
 
