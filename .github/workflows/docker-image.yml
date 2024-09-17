@@ -21,7 +21,7 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKERHUB_TOKEN}}
       run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     
-    - name: Build the Docker image
+    - name: Build the Docker Image
       run: docker build spring-boot-todo-list-main --file spring-boot-todo-list-main/Dockerfile --tag anastasijapetrova88704/kiii-project:latest
     
     - name: Docker Push Image
