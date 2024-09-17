@@ -25,6 +25,6 @@ jobs:
       run: docker build spring-boot-todo-list-main --file spring-boot-todo-list-main/Dockerfile --tag anastasijapetrova88704/kiii-project:latest
     
     - name: Docker Push Image
-      run: docker push ${{secrets.DOCKERHUB_USER}}/kiii-project:latest
+      run: docker push ${{secrets.DOCKERHUB_USERNAME}}/kiii-project:latest
 
         
