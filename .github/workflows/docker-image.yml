@@ -16,4 +16,4 @@ jobs:
     - uses: actions/checkout@v4
     
     - name: Build the Docker image
-      run: docker build . --file spring-boot-todo-list-main/Dockerfile --tag anastasijapetrova88704/kiii-project:latest
+      run: docker build spring-boot-todo-list-main --file spring-boot-todo-list-main/Dockerfile --tag anastasijapetrova88704/kiii-project:latest
