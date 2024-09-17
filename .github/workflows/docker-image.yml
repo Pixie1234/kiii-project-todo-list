@@ -17,14 +17,14 @@ jobs:
 
     - name: Docker Login
       env: 
-        DOCKER_USER: ${{secrets.DOCKER_USER}}
-        DOCKER_PASSWORD: ${{secrets.DOCKER_TOKEN}}
+        DOCKER_USER: ${{secrets.DOCKERHUB_TOKEN}}
+        DOCKER_PASSWORD: ${{secrets.DOCKERHUB_TOKEN}}
       run: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
     
     - name: Build the Docker image
       run: docker build spring-boot-todo-list-main --file spring-boot-todo-list-main/Dockerfile --tag anastasijapetrova88704/kiii-project:latest
     
     - name: Docker Push Image
-      run: docker push ${{secrets.DOCKER_USER}}/kiii-project:latest
+      run: docker push ${{secrets.DOCKERHUB_USER}}/kiii-project:latest
 
         
