@@ -8,11 +8,23 @@ on:
 
 jobs:
 
-  build:
+  build-and-push-dockerhub:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file spring-boot-todo-list-main/Dockerfile --tag anastasijapetrova88704/kiii-project:latest
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{secrets.DOCKERHUB_USERNAME}}
+        password: ${{secrets.DOCKERHUB_TOKEN}}
+    
+    - name: Build the Docker Image
+      run: docker build spring-boot-todo-list-main --file spring-boot-todo-list-main/Dockerfile --tag anastasijapetrova88704/kiii-project:latest
+    
+    - name: Docker Push Image
+      run: docker push ${{secrets.DOCKERHUB_USERNAME}}/kiii-project:latest
+
+        
